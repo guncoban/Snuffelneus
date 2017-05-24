@@ -5,12 +5,12 @@ script.src = `//maps.googleapis.com/maps/api/js?key=${googleApiKey}&callback=ini
 document.body.appendChild(script);
 
 const contentString = 'haha';
-const getMeasurementsString = 'http://145.24.222.50:8000/measurements';
 
 function initMap() {
     const instance = axios.create({
         baseURL: 'http://145.24.222.50:8000/api/',
-        timeout: 1000
+        headers: {"Access-Control-Allow-Origin": "*"},
+        timeout: 5000
     });
 
     instance.get('/measurements')
