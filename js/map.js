@@ -46,7 +46,15 @@ function initMap()
                 {
                     return function ()
                     {
-                        infowindow.setContent(infoWindowTemplate);
+                        infowindow.setContent(`
+ <div class="Measurement">
+    <h2>
+        ${pinsData[i].location_address}
+    </h2>
+    <p class="Temperature">${pinsData[i].temperature}</p>
+    <p class="Humidity">${pinsData[i].humidity}</p>
+ </div>
+`);
                         infowindow.open(map, marker);
                     }
                 })(marker, i));
