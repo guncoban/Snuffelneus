@@ -33,14 +33,6 @@ function initMap()
                 })
                 );
             }
-            const marker = new google.maps.Marker
-            ({
-                position: {
-                    lat: pinsData[0].location_latitude,
-                },
-                map,
-            });
-            console.log(lat);
             console.log(response);
         })
         .catch(function(error) {console.log(error); })
