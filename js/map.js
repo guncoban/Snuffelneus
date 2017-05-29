@@ -6,7 +6,7 @@ document.body.appendChild(script);
 
 const contentString = 'haha';
 
-var geocoder = new google.maps.Geocoder;
+var geocoder = new google.maps.Geocoder();
 
 function initMap() 
 {
