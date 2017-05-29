@@ -15,6 +15,13 @@ function initMap() {
 
     instance.get('/measurements')
         .then(function(response) {
+            var pinsData = response.data;
+            const marker = new google.maps.Marker({
+                position = {
+                    lat = pinsData[0].latitude
+                }
+            })
+            console.log(lat);
             console.log(response);
         })
         .catch(function(error) {
