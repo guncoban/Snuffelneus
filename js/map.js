@@ -22,7 +22,7 @@ function initMap() {
                 },
                 map,
             });
-
+            console.log(lat);
             console.log(response);
         })
         .catch(function(error) {
