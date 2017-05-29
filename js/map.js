@@ -39,9 +39,10 @@ function initMap()
                         content: pinsData[i].location_address,
                     })
                 )
+                var tempWindow = infoWindowArray[i];
                 markerArray[i].addListener('click', function () 
                 {
-                    infoWindowArray[i].open(map, markerArray[i]);
+                    tempWindow.open(map, markerArray[i]);
                 });
             }
             console.log(response);
@@ -60,19 +61,4 @@ function initMap()
             },
         },
     );
-
-    const marker = new google.maps.Marker
-        ({
-            position:
-            {
-                lat: 51.929431,
-                lng: 4.488679,
-            },
-            map,
-        });
-
-    marker.addListener('click', function ()
-    {
-        infoWindow.open(map, marker);
-    });
 }
