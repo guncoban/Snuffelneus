@@ -27,7 +27,7 @@ function initMap()
                     position: 
                     {
                         lat: pinsData[i].location_latitude,
-                        lng: pinsData[i].location.longitude,
+                        lng: pinsData[i].location_longitude,
                     },
                     map,
                 })
