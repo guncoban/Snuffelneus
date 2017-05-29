@@ -62,10 +62,6 @@ function initMap()
         },
     );
 
-    const infoWindow = new google.maps.InfoWindow({
-        content: contentString,
-    });
-
     const marker = new google.maps.Marker
         ({
             position:
