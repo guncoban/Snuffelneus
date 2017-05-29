@@ -6,17 +6,35 @@ document.body.appendChild(script);
 
 const contentString = 'haha';
 
-function initMap() {
-    const instance = axios.create({
+function initMap() 
+{
+    const instance = axios.create
+    ({
         baseURL: 'http://145.24.222.50:8000/api/',
         headers: {"Access-Control-Allow-Origin": "*"},
         timeout: 5000
     });
 
     instance.get('/measurements')
-        .then(function(response) {
+        .then(function(response) 
+        {
             var pinsData = response.data;
-            const marker = new google.maps.Marker({
+            var markerArray = [];
+            for (i = 0; i < pinsData.length;i++)
+            {
+                markerArray.push(new google.maps.Marker
+                ({
+                    position: 
+                    {
+                        lat: pinsData[i].location_latitude,
+                        lng: pinsData[i].location.longitude,
+                    },
+                    map,
+                })
+                );
+            }
+            const marker = new google.maps.Marker
+            ({
                 position: {
                     lat: pinsData[0].location_latitude,
                 },
@@ -25,9 +43,7 @@ function initMap() {
             console.log(lat);
             console.log(response);
         })
-        .catch(function(error) {
-            console.log(error);
-        })
+        .catch(function(error) {console.log(error); })
     ;
 
     const map = new google.maps.Map(
@@ -45,8 +61,10 @@ function initMap() {
         content: contentString,
     });
 
-    const marker = new google.maps.Marker({
-        position: {
+    const marker = new google.maps.Marker
+    ({
+        position: 
+        {
             lat: 51.929431,
             lng: 4.488679,
         },
