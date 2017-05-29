@@ -4,7 +4,7 @@ script.type = 'text/javascript';
 script.src = `//maps.googleapis.com/maps/api/js?key=${googleApiKey}&callback=initMap`;
 document.body.appendChild(script);
 
-const contentString = 'haha';
+var tempContentString;
 
 var geocoder;
 
@@ -43,17 +43,17 @@ function initMap()
                     {
                         if (results[1]) 
                         {
-                            var tempContentString = (results[1].formatted_address) + "Temperature : " + pinsData[i].temperature;
+                            tempContentString = (results[1].formatted_address) + "Temperature : " + pinsData[i].temperature;
                         } 
                         else 
                         {
-                            var tempContentString = "Temperature : " + pinsData[i].temperature;
+                            tempContentString = "Temperature : " + pinsData[i].temperature;
                             console.log('No matches found')
                         }
                 } 
                 else 
                 {
-                    var tempContentString = "Temperature : " + pinsData[i].temperature;
+                    tempContentString = "Temperature : " + pinsData[i].temperature;
                     console.log('Geocoder failed due to: ' + status);
                 }
                 });
