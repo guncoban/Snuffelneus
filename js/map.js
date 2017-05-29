@@ -47,11 +47,13 @@ function initMap()
                     {
                         infowindow.setContent(`
                         <div class="Measurement">
-                        <h2>
+                        <center><h2>
                             ${pinsData[i].location_address}
-                        </h2>
-                        <p class="Temperature">${pinsData[i].temperature}</p>
-                        <p class="Humidity">${pinsData[i].humidity}</p>
+                        </h2></center>
+                        <p class="Temperature">Temperatuur: ${pinsData[i].temperature}</p>
+                        <p class="Humidity">Luchtvochtigheid: ${pinsData[i].humidity}</p>
+                        <p class="Nitro">Stikstof: ${pinsData[i].nitrodioxide}</p>
+                        <p class="Particulates">Luchtvochtigheid: ${pinsData[i].particulates}</p>
                         </div>
                         `);
                         infowindow.open(map, marker);
