@@ -10,7 +10,15 @@ var infoWindowArray = [];
 
 function initMap() 
 {
-    var infowindow = new InfoBubble();
+    var infowindow = new InfoBubble
+    ({
+        padding: 0,
+        backgroundColor: 'rgb(216,216,216)',
+        borderRadius: 5,
+        arrowSize: 10,
+        borderWidth: 1,
+        borderColor: '#776f6f',
+    });
     const instance = axios.create
         ({
             baseURL: 'http://145.24.222.50:8000/api/',
