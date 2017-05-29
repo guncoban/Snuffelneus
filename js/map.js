@@ -8,18 +8,9 @@ var tempContentString;
 var markerArray = [];
 var infoWindowArray = [];
 
-const infoWindowTemplate = `
- <div class="Measurement">
-    <h2>
-        ${pinsData[i].location_address}
-    </h2>
-    <p class="Temperature">${pinsData[i].temperature}</p>
-    <p class="Humidity">${pinsData[i].humidity}</p>
- </div>
-`;
 function initMap() 
 {
-    var infowindow = new google.maps.InfoWindow;
+    var infowindow = new InfoBubble();
     const instance = axios.create
         ({
             baseURL: 'http://145.24.222.50:8000/api/',
@@ -47,14 +38,14 @@ function initMap()
                     return function ()
                     {
                         infowindow.setContent(`
- <div class="Measurement">
-    <h2>
-        ${pinsData[i].location_address}
-    </h2>
-    <p class="Temperature">${pinsData[i].temperature}</p>
-    <p class="Humidity">${pinsData[i].humidity}</p>
- </div>
-`);
+                        <div class="Measurement">
+                        <h2>
+                            ${pinsData[i].location_address}
+                        </h2>
+                        <p class="Temperature">${pinsData[i].temperature}</p>
+                        <p class="Humidity">${pinsData[i].humidity}</p>
+                        </div>
+                        `);
                         infowindow.open(map, marker);
                     }
                 })(marker, i));
