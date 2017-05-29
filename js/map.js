@@ -3,9 +3,6 @@ const script = document.createElement('script');
 script.type = 'text/javascript';
 script.src = `//maps.googleapis.com/maps/api/js?key=${googleApiKey}&callback=initMap`;
 document.body.appendChild(script);
-var imported = document.createElement('script');
-imported.src = '/src/infobubble.js';
-document.head.appendChild(imported);
 
 var tempContentString;
 var markerArray = [];
