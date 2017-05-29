@@ -35,7 +35,7 @@ function initMap()
                     })
                 );
                 var latlng = { lat: pinsData[i].location_latitude, lng: pinsData[i].location_longitude };
-                infoWindowArray.push(new google.maps.infoWindow
+                infoWindowArray.push(new google.maps.InfoWindow
                     ({
                         content: pinsData[i].location_address,
                     })
