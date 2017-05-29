@@ -6,6 +6,8 @@ document.body.appendChild(script);
 
 const contentString = 'haha';
 
+var geocoder = new google.maps.Geocoder;
+
 function initMap() 
 {
     const instance = axios.create
@@ -20,6 +22,7 @@ function initMap()
         {
             var pinsData = response.data;
             var markerArray = [];
+            var infoWindowArray = [];
             for (i = 0; i < pinsData.length;i++)
             {
                 markerArray.push(new google.maps.Marker
@@ -32,6 +35,39 @@ function initMap()
                     map,
                 })
                 );
+                var latlng = {lat: pinsData[i].location_latitude, lng: pinsData[i].location_longitude};
+                geocoder.geocode({'location': latlng}, function(results, status) 
+                {
+                    if (status === 'OK') 
+                    {
+                        if (results[1]) 
+                        {
+                            var tempContentString = (results[1].formatted_address) + "Temperature : " + pinsData[i].temperature;
+                        } 
+                        else 
+                        {
+                            var tempContentString = "Temperature : " + pinsData[i].temperature;
+                            console.log('No matches found')
+                        }
+                } 
+                else 
+                {
+                    var tempContentString = "Temperature : " + pinsData[i].temperature;
+                    console.log('Geocoder failed due to: ' + status);
+                }
+                });
+                if (tempContentString)
+                {
+                    infoWindowArray.push(new google.maps.infoWindow
+                    ({
+                        content: tempContentString,
+                    })
+                    )
+                }
+                markerArray[i].addListener('click', function() 
+                {
+                    infoWindowArray[i].open(map, markerArray[i]);
+                });
             }
             console.log(response);
         })
