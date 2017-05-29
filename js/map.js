@@ -7,6 +7,7 @@ document.body.appendChild(script);
 var tempContentString;
 var markerArray = [];
 var infoWindowArray = [];
+var infowindow = new google.maps.InfoWindow;
 
 function initMap() 
 {
@@ -23,7 +24,7 @@ function initMap()
             var pinsData = response.data;
             for (i = 0; i < pinsData.length; i++)
             {
-                markerArray.push(new google.maps.Marker
+                marker = new google.maps.Marker
                     ({
                         position:
                         {
@@ -31,19 +32,15 @@ function initMap()
                             lng: pinsData[i].location_longitude,
                         },
                         map,
-                    })
-                );
-                var latlng = { lat: pinsData[i].location_latitude, lng: pinsData[i].location_longitude };
-                infoWindowArray.push(new google.maps.InfoWindow
-                    ({
-                        content: pinsData[i].location_address,
-                    })
-                )
-                var tempWindow = infoWindowArray[i];
-                markerArray[i].addListener('click', function () 
+                    });
+                google.maps.event.addListener(marker, 'click', (function (marker, i)
                 {
-                    tempWindow.open(map, markerArray[i]);
-                });
+                    return function ()
+                    {
+                        infowindow.setContent(pinsData[i]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
             }
             console.log(response);
         })
