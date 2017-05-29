@@ -18,8 +18,9 @@ function initMap() {
             var pinsData = response.data;
             const marker = new google.maps.Marker({
                 position = {
-                    lat = pinsData[0].latitude
-                }
+                    lat = pinsData[0].latitude,
+                },
+                map,
             });
             console.log(lat);
             console.log(response);
