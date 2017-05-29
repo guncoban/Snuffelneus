@@ -13,11 +13,10 @@ function initMap()
     var infowindow = new InfoBubble
     ({
         padding: 0,
-        backgroundColor: 'rgb(216,216,216)',
         borderRadius: 5,
         arrowSize: 10,
-        borderWidth: 1,
-        borderColor: '#776f6f',
+        borderWidth: 5,
+        borderColor: '#289600',
     });
     const instance = axios.create
         ({
