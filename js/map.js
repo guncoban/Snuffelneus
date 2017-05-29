@@ -7,10 +7,10 @@ document.body.appendChild(script);
 var tempContentString;
 var markerArray = [];
 var infoWindowArray = [];
-var infowindow = new google.maps.InfoWindow;
 
 function initMap() 
 {
+    var infowindow = new google.maps.InfoWindow;
     const instance = axios.create
         ({
             baseURL: 'http://145.24.222.50:8000/api/',
