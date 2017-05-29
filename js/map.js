@@ -20,7 +20,7 @@ function initMap() {
                 position = {
                     lat = pinsData[0].latitude
                 }
-            })
+            });
             console.log(lat);
             console.log(response);
         })
