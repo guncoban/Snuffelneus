@@ -6,10 +6,11 @@ document.body.appendChild(script);
 
 const contentString = 'haha';
 
-var geocoder = new google.maps.Geocoder();
+var geocoder;
 
 function initMap() 
 {
+    geocoder = new google.maps.Geocoder();
     const instance = axios.create
     ({
         baseURL: 'http://145.24.222.50:8000/api/',
