@@ -15,8 +15,9 @@ function initMap()
         padding: 0,
         borderRadius: 5,
         arrowSize: 10,
-        borderWidth: 5,
-        borderColor: '#289600',
+        borderWidth: 3,
+        borderColor: '#00a4ad',
+        hideCloseButton: true,
     });
     const instance = axios.create
         ({
@@ -71,6 +72,7 @@ function initMap()
                 lat: 51.929433,
                 lng: 4.488680,
             },
+            mapTypeId: 'terrain',
         },
     );
 }
