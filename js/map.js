@@ -5,7 +5,8 @@ script.src = `//maps.googleapis.com/maps/api/js?key=${googleApiKey}&callback=ini
 document.body.appendChild(script);
 
 var tempContentString;
-
+var markerArray = [];
+var infoWindowArray = [];
 
 function initMap() 
 {
@@ -20,8 +21,6 @@ function initMap()
         .then(function (response) 
         {
             var pinsData = response.data;
-            var markerArray = [];
-            var infoWindowArray = [];
             for (i = 0; i < pinsData.length; i++)
             {
                 markerArray.push(new google.maps.Marker
