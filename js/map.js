@@ -39,11 +39,11 @@ function initMap()
                         content: pinsData[i].location_address,
                     })
                 )
+                markerArray[i].addListener('click', function () 
+                {
+                    infoWindowArray[i].open(map, markerArray[i]);
+                });
             }
-            markerArray[i].addListener('click', function () 
-            {
-                infoWindowArray[i].open(map, markerArray[i]);
-            });
             console.log(response);
         })
         .catch(function (error) { console.log(error); })
