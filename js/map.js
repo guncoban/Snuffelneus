@@ -7,8 +7,7 @@ document.body.appendChild(script);
 var tempContentString;
 var markerArray = [];
 var infoWindowArray = [];
-var locale = window.navigator.userLanguage || window.navigator.language;
-moment.locale(locale);
+moment.locale('nl');
 
 function initMap() 
 {
