@@ -46,7 +46,7 @@ function initMap()
                 {
                     return function ()
                     {
-                        var tempDate = moment().format("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","en_GB");
+                        var tempDate = moment().format(pinsData[i].measurement_datetime);
                         infowindow.setContent(`
                         <div class="Measurement">
                         <center><h2>
