@@ -46,8 +46,7 @@ function initMap()
                 {
                     return function ()
                     {
-                        var dateFormatter = new simpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","en_GB");
-                        var tempDate = dateFormatter.format(pinsData.measurement_datetime)
+                        var tempDate = moment().format("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","en_GB");
                         infowindow.setContent(`
                         <div class="Measurement">
                         <center><h2>
