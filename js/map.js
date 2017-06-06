@@ -42,6 +42,7 @@ function initMap()
                         },
                         map,
                     });
+                markerArray.push(marker);
                 google.maps.event.addListener(marker, 'click', (function (marker, i)
                 {
                     return function ()
@@ -51,6 +52,9 @@ function initMap()
                         <center><h2>
                             ${pinsData[i].location_address}
                         </h2></center>
+                        <center><h3>
+                            ${pinsData[i].measurement_datetime}
+                        </h3></center>
                         <p class="Temperature">Temperatuur: ${pinsData[i].temperature}</p>
                         <p class="Humidity">Luchtvochtigheid: ${pinsData[i].humidity}</p>
                         <p class="Nitro">Stikstof: ${pinsData[i].nitrodioxide}</p>
