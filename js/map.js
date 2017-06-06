@@ -54,7 +54,7 @@ function initMap()
                             ${pinsData[i].location_address}
                         </h2></center>
                         <center><h3>
-                            ${pinsData[i].measurement_datetime.getMonth()}
+                            ${tempDate}
                         </h3></center>
                         <p class="Temperature">Temperatuur: ${pinsData[i].temperature}</p>
                         <p class="Humidity">Luchtvochtigheid: ${pinsData[i].humidity}</p>
