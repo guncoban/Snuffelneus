@@ -7,6 +7,7 @@ document.body.appendChild(script);
 var tempContentString;
 var markerArray = [];
 var infoWindowArray = [];
+var dateFormatter = new simpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",Locale.GB);
 
 function initMap() 
 {
@@ -47,13 +48,14 @@ function initMap()
                 {
                     return function ()
                     {
+                        var tempDate = dateFormatter.format(pinsData.measurement_datetime)
                         infowindow.setContent(`
                         <div class="Measurement">
                         <center><h2>
                             ${pinsData[i].location_address}
                         </h2></center>
                         <center><h3>
-                            ${pinsData[i].measurement_datetime}
+                            ${pinsData[i].measurement_datetime.getMonth()}
                         </h3></center>
                         <p class="Temperature">Temperatuur: ${pinsData[i].temperature}</p>
                         <p class="Humidity">Luchtvochtigheid: ${pinsData[i].humidity}</p>
