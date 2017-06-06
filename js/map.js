@@ -43,11 +43,11 @@ function initMap()
                         },
                         map,
                     });
-                markerArray.push(marker);
                 google.maps.event.addListener(marker, 'click', (function (marker, i)
                 {
                     return function ()
                     {
+                        var dateFormatter = new simpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",Locale.GB);
                         var tempDate = dateFormatter.format(pinsData.measurement_datetime)
                         infowindow.setContent(`
                         <div class="Measurement">
