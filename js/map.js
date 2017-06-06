@@ -7,6 +7,8 @@ document.body.appendChild(script);
 var tempContentString;
 var markerArray = [];
 var infoWindowArray = [];
+var locale = window.navigator.userLanguage || window.navigator.language;
+moment.locale(locale);
 
 function initMap() 
 {
@@ -47,6 +49,7 @@ function initMap()
                     return function ()
                     {
                         var tempDate = moment(pinsData[i].measurement_datetime, moment.ISO_8601);
+                        tempDate = tempDate.format('LL');
                         infowindow.setContent(`
                         <div class="Measurement">
                         <center><h2>
