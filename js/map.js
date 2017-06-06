@@ -7,7 +7,7 @@ document.body.appendChild(script);
 var tempContentString;
 var markerArray = [];
 var infoWindowArray = [];
-var dateFormatter = new simpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",Locale.GB);
+var dateFormatter = new simpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","en_GB");
 
 function initMap() 
 {
