@@ -78,8 +78,8 @@ function initMap()
             zoom: 15,
             center:
             {
-                lat: 51.929433,
-                lng: 4.488680,
+                lat: 51.917613,
+                lng: 4.486282,
             },
             mapTypeId: 'terrain',
             styles: [ { "featureType": "administrative.land_parcel", "stylers": [ { "visibility": "off" } ] }, { "featureType": "administrative.neighborhood", "stylers": [ { "visibility": "off" } ] }, { "featureType": "landscape.natural.landcover", "stylers": [ { "visibility": "on" } ] }, { "featureType": "landscape.natural.terrain", "stylers": [ { "visibility": "on" } ] }, { "featureType": "poi", "stylers": [ { "visibility": "off" } ] }, { "featureType": "poi", "elementType": "labels.text", "stylers": [ { "visibility": "off" } ] }, { "featureType": "poi.business", "stylers": [ { "visibility": "off" } ] }, { "featureType": "poi.park", "stylers": [ { "visibility": "on" }, { "weight": 2 } ] }, { "featureType": "poi.park", "elementType": "labels", "stylers": [ { "visibility": "on" } ] }, { "featureType": "road", "elementType": "labels", "stylers": [ { "visibility": "off" } ] }, { "featureType": "road", "elementType": "labels.icon", "stylers": [ { "visibility": "off" } ] }, { "featureType": "transit", "stylers": [ { "visibility": "off" } ] }, { "featureType": "water", "stylers": [ { "visibility": "on" } ] }, { "featureType": "water", "elementType": "labels.text", "stylers": [ { "visibility": "off" } ] } ]
