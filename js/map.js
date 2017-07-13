@@ -5,22 +5,20 @@ script.src = `//maps.googleapis.com/maps/api/js?key=${googleApiKey}&callback=ini
 document.body.appendChild(script);
 
 var tempContentString;
-var markerArray = [];
-var infoWindowArray = [];
 moment.locale('nl');
 
 function initMap() 
 {
     var infowindow = new InfoBubble
-    ({
-        maxWidth: 150,
-        padding: 0,
-        borderRadius: 5,
-        arrowSize: 10,
-        borderWidth: 3,
-        borderColor: '#00a4ad',
-        hideCloseButton: true,
-    });
+        ({
+            maxWidth: 150,
+            padding: 0,
+            borderRadius: 5,
+            arrowSize: 10,
+            borderWidth: 3,
+            borderColor: '#00a4ad',
+            hideCloseButton: true,
+        });
     const instance = axios.create
         ({
             baseURL: 'http://145.24.222.50:8000/api/',
@@ -49,7 +47,8 @@ function initMap()
                     {
                         var tempDate = moment(pinsData[i].measurement_datetime, moment.ISO_8601);
                         tempDate = tempDate.format('LLL');
-                        infowindow.setContent(`
+                        infowindow.setContent
+                            (`
                         <div class="Measurement">
                         <center><h2>
                             ${pinsData[i].location_address}
@@ -69,20 +68,40 @@ function initMap()
             }
             console.log(response);
         })
-        .catch(function (error) { console.log(error); })
-        ;
+        .catch(function (error) { console.log(error); });
 
     const map = new google.maps.Map(
         document.getElementById('map'),
         {
-            zoom: 17,
+            zoom: 16,
             center:
             {
                 lat: 51.917613,
                 lng: 4.486282,
             },
             mapTypeId: 'terrain',
-            styles: [ { "featureType": "administrative.land_parcel", "stylers": [ { "visibility": "off" } ] }, { "featureType": "administrative.neighborhood", "stylers": [ { "visibility": "off" } ] }, { "featureType": "landscape.natural.landcover", "stylers": [ { "visibility": "on" } ] }, { "featureType": "landscape.natural.terrain", "stylers": [ { "visibility": "on" } ] }, { "featureType": "poi", "stylers": [ { "visibility": "off" } ] }, { "featureType": "poi", "elementType": "labels.text", "stylers": [ { "visibility": "off" } ] }, { "featureType": "poi.business", "stylers": [ { "visibility": "off" } ] }, { "featureType": "poi.park", "stylers": [ { "visibility": "on" }, { "weight": 2 } ] }, { "featureType": "poi.park", "elementType": "labels", "stylers": [ { "visibility": "on" } ] }, { "featureType": "road", "elementType": "labels", "stylers": [ { "visibility": "off" } ] }, { "featureType": "road", "elementType": "labels.icon", "stylers": [ { "visibility": "off" } ] }, { "featureType": "transit", "stylers": [ { "visibility": "off" } ] }, { "featureType": "water", "stylers": [ { "visibility": "on" } ] }, { "featureType": "water", "elementType": "labels.text", "stylers": [ { "visibility": "off" } ] } ]
+            styles: [{ "featureType": "administrative.land_parcel", "stylers": [{ "visibility": "off" }] }, { "featureType": "administrative.neighborhood", "stylers": [{ "visibility": "off" }] }, { "featureType": "landscape.natural.landcover", "stylers": [{ "visibility": "on" }] }, { "featureType": "landscape.natural.terrain", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi", "elementType": "labels.text", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi.business", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi.park", "stylers": [{ "visibility": "on" }, { "weight": 2 }] }, { "featureType": "poi.park", "elementType": "labels", "stylers": [{ "visibility": "on" }] }, { "featureType": "road", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "stylers": [{ "visibility": "off" }] }, { "featureType": "water", "stylers": [{ "visibility": "on" }] }, { "featureType": "water", "elementType": "labels.text", "stylers": [{ "visibility": "off" }] }]
         },
     );
+    if (navigator.geolocation) 
+    {
+        navigator.geolocation.getCurrentPosition(function (position)
+        {
+            initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            map.setCenter(initialLocation);
+        });
+    }
+
 }
+function getLocation()
+{
+    if (navigator.geolocation) 
+    {
+        navigator.geolocation.getCurrentPosition(function (position)
+        {
+            initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            map.setCenter(initialLocation);
+        });
+    }
+}
+//getLocation();
